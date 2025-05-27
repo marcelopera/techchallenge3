@@ -10,6 +10,28 @@ Um sistema completo para coletar dados de ações, treinar modelos de previsão 
 - **Armazenamento Eficiente**: Dados particionados em formato Parquet
 - **Previsões Multi-dia**: Previsão de preços para os próximos 1-30 dias
 
+## 📈 Como rodar localmente
+
+```bash
+# 1. Instalar as dependencias
+pip install -r requirements.txt
+
+# 2. Coletar dados históricos
+python stock_bulk_loader.py
+
+# 3. Treinar modelos
+python stock_script.py
+
+# 4. Iniciar API
+flask --app stock_api.py run --host=0.0.0.0 --port=5000
+
+# 5. Fazer previsões
+curl http://localhost:5000/predict/AAPL?days=5
+
+# 6. Atualização diária (crontab)
+python stock_daily_loader.py
+```
+
 ## 🏗️ Arquitetura
 
 ```mermaid
@@ -312,25 +334,6 @@ prediction_api = StockPredictionAPI(models_dir="meus_modelos")
 
 3. **Dados insuficientes**
    - Mínimo necessário: 65+ registros por ticker (sequence_length + 5)
-
-## 📈 Exemplo de Uso Completo
-
-```bash
-# 1. Coletar dados históricos
-python stock_bulk_loader.py
-
-# 2. Treinar modelos
-python stock_script.py
-
-# 3. Iniciar API
-python stock_api.py
-
-# 4. Fazer previsões
-curl http://localhost:5000/predict/AAPL?days=5
-
-# 5. Atualização diária (crontab)
-python stock_daily_loader.py
-```
 
 ## 🔄 Automação e Monitoramento
 
