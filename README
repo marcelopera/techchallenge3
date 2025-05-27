@@ -108,7 +108,7 @@ Um sistema completo para coletar dados de ações, treinar modelos de previsão 
 ### Dependências
 
 ```bash
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 ### Tickers Suportados (Padrão)
@@ -170,7 +170,7 @@ O script oferece opções interativas para:
 ### Iniciar o Servidor
 
 ```bash
-python stock_api.py
+flask --app stock_api.py run --host=0.0.0.0 --port=5000
 ```
 
 ### Endpoints Disponíveis
@@ -355,33 +355,3 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 ```
-
-## ⚡ Performance e Otimizações
-
-- **Cache de Modelos**: Modelos são carregados uma vez e mantidos em memória
-- **Dados Particionados**: Consultas rápidas por data com Parquet
-- **Validação de Entrada**: Filtros de dias úteis para previsões
-- **Gestão de Memória**: Carregamento lazy dos modelos
-
-## 📝 Notas Importantes
-
-- **Mercados**: Previsões consideram apenas dias úteis (seg-sex)
-- **Timezone**: Todas as datas em UTC por padrão
-- **Accurácia**: Modelos são indicativos, não garantem performance futura
-- **Re-treinamento**: Recomenda-se re-treinar periodicamente com dados atualizados
-
-## 🤝 Contribuições
-
-1. Fork o projeto
-2. Crie uma branch para sua feature
-3. Commit suas mudanças
-4. Push para a branch
-5. Abra um Pull Request
-
-## 📄 Licença
-
-Este projeto está sob licença MIT. Veja o arquivo LICENSE para detalhes.
-
-## ⚠️ Disclaimer
-
-Este software é apenas para fins educacionais e de pesquisa. Não constitui aconselhamento financeiro. Sempre consulte profissionais qualificados antes de tomar decisões de investimento.
