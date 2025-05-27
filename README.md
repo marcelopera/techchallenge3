@@ -7,8 +7,6 @@ Um sistema completo para coletar dados de ações, treinar modelos de previsão 
 - **Coleta de Dados**: Download automático de dados históricos de ações usando Yahoo Finance
 - **Treinamento de Modelos**: Modelos LSTM personalizados para cada ticker
 - **API REST**: Endpoints para obter previsões e gerenciar modelos
-- **Armazenamento Eficiente**: Dados particionados em formato Parquet
-- **Previsões Multi-dia**: Previsão de preços para os próximos 1-30 dias
 
 ## 📈 Como rodar localmente
 
